@@ -1,0 +1,61 @@
+create DATABASE aula;
+use aula;
+CREATE TABLE if not exists pacientes(
+    id serial PRIMARY KEY,
+    nome varchar (40) not null,
+    sexo varchar (1),
+    obito boolean,
+    insertdAt TIMESTAMP NOT null DEFAULT NOW());
+
+CREATE TABLE if not EXISTS profissionais(
+    id serial PRIMARY KEY,
+    nome varchar (50));
+
+CREATE TABLE if not EXISTS especialidades(
+    id serial PRIMARY KEY,
+    nome varchar (50));
+
+CREATE TABLE if not EXISTS consultas(
+    id serial PRIMARY KEY,
+    especialidade_id integer,
+    pac_id integer,
+    profiss_id integer);
+
+CREATE TABLE if not EXISTS obitos(
+    id serial PRIMARY KEY,
+	obs text
+);
+
+
+
+ALTER TABLE consultas
+ADD CONSTRAINT FkEspecialidadeDaConsulta FOREIGN KEY (especialidade_id) 
+REFERENCES 
+	especialidades(id);
+    
+ALTER TABLE consultas
+ADD CONSTRAINT FkProfissionalDaConsulta FOREIGN KEY (profiss_id)
+REFERENCES
+	profissionais(id);
+
+insert into especialidades (nome) values ('urologista');
+insert into especialidades (nome) values ('ginecologista');
+insert into especialidades (nome) values ('clinica geral');
+
+select * from especialidades;
+
+insert into profissionais (nome) values ('Dr. Fell GoodUro');
+insert into profissionais (nome) values ('Dr. JekyllGineco');
+insert into profissionais (nome) values ('Dr. Ray');
+
+select * from profissionais;
+
+insert into pacientes (nome,sexo,obito) values ('Ada Lovelace','f','f');
+insert into pacientes (nome,sexo,obito) values ('Donald Knuth','m','f');
+insert into pacientes (nome,sexo,obito) values ('Grace Hopper','f','f');
+insert into pacientes (nome,sexo,obito) values ('Dennis Ritchie','m','f');
+
+
+select * from pacientes;
+
+select * from consultas;
