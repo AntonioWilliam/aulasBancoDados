@@ -43,7 +43,7 @@ foreign key (medico_codigo)references medico(codigo)
 )
 
 insert into paciente (num_beneficiario,nome,logadouro,numero,CEP,complemento,telefone)values
-(99902, 'Luis Ricardo', 'R.Voluntários da Pátria',2251,03254010,'Bloco B Apto 25','92340987'),
+(99902, 'Luis Ricardo', 'R.VoluntÃ¡rios da PÃ¡tria',2251,03254010,'Bloco B Apto 25','92340987'),
 (99903,'Maria Elisa','Av. Aguia de Haia',1188,0698702,'Apto 1208','91238765'),
 (99904, 'Jose Araujo','R.XV de nobembro',18,03678000,'casa','945674321'),
 (99905, 'Joana Paula','R. 7 de Abril',97,01214000,'Conjunto 3- apto 801','912095674')
@@ -58,27 +58,27 @@ insert into especialidade(id,especialidade) values
 (1,'Otorrinolaringologista'),(2,'urologista'),(3,'Geriatra'),(4,'Pediatra')
 
 insert into consulta(Paciente_num_beneficiario,Medico_Codigo,Data_hora,observacao) values
-(99901,100002,'2021-09-04 13:20','infecção Urinaria'),
+(99901,100002,'2021-09-04 13:20','infecÃ§Ã£o Urinaria'),
 (99902,100003,'2021-09-04 13:15','Gripe'),
-(99901,100001,'2021-09-04 12:30','infecção garganta')
+(99901,100001,'2021-09-04 12:30','infecÃ§Ã£o garganta')
 
 alter table medico
 add dia_atendimento varchar(100)
 
 update medico 
-set dia_atendimento ='2° feira'
+set dia_semana_atendimento ='2Â° feira'
 where codigo=100001
 
 update medico 
-set dia_atendimento ='4° feira'
+set dia_semana_atendimento ='4Â° feira'
 where codigo=100002
 
 update medico 
-set dia_atendimento ='2° feira'
+set dia_semana_atendimento ='2Â° feira'
 where codigo=100003
 
 update medico 
-set dia_atendimento ='5° feira'
+set dia_semana_atendimento ='5Â° feira'
 where codigo=100004
 
 delete especialidade
